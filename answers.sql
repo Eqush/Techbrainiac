@@ -1,67 +1,66 @@
 -- USE hospital_db;
-
--- Select only first name,last name and date of birth
--- SELECT * FROM patients;
--- SELECT first_name, last_name and date_of_birth
--- FROM patients;
-
--- Select only providers id,first name and provider specialty
--- SELECT * FROM providers;
--- SELECT provider_id, first_name and provider_specialty
--- FROM providers;
-
--- retrieving names of patients whose name starts with "Ab"
--- SELECT * FROM patients
--- WHERE first_name LIKE "Ab%";
-
--- retrieving providers whose specialties end with "y"
--- SELECT * FROM providers
--- WHERE provider_specialty LIKE "y%";
-
--- retrieve all patients born after 01 January 1980
--- SELECT * FROM patients
--- WHERE date_of_birth > "1980-01-01";
-
--- retrieving visits where acuity level is 2 or higher
---  SELECT * FROM ed_visits
- -- WHERE acuity > "2";
-
--- retrieving the language spoken
--- SELECT * FROM patients;
--- SELECT language= ="spanish"
--- FROM patients;
-
--- retrieving visits with reason and disposition
--- SELECT * FROM ed_visits
--- WHERE reason_for_visit ="migraine"
--- AND disposition = "admissions";
-
--- retrieving birth date of patients born between 1975 nad 1980
--- SELECT * FROM patients
--- WHERE date_of_birth BETWEEN '1975-01-01' AND '1980-12-31';
-
--- retrieving patients names and sorting them in alphabetical order
--- SELECT first_name, last_name
--- FROM patients
--- ORDER BY first_name ASC;
  
--- retrieving all visits starting from the most recent
--- SELECT* FROM visits
--- ORDER BY date_of_visit DESC;
-  
--- retrieve primary diagnosis is "Stroke"  discharge disposition is "Home".
--- SELECT *
+-- retrieving total number of patients in admission table
+-- SELECT COUNT(*) AS total_admissions
+-- FROM admissions;
+ 
+ -- calculating average length of stay from patients
+ -- SELECT AVG (DATEDIFF(discharge_date, admission_date)) AS average_length_of_stay
+--  FROM admissions;
+
+-- grouping by admissions and calculating total number of admissions
+-- SELECT primary_diagnosis, COUNT(*) AS total_admissions
 -- FROM admissions
--- WHERE primary_diagnosis = "stroke"
--- AND disharge_disposition = "Home";
+-- GROUP BY primary_diagnosis;
 
--- providers who joined after 1995 and specialize in Pediatrics or Cardiology
--- SELECT *
--- FROM providers
--- WHERE date_joined > "1995-12-31"
--- AND provider_specialty IN ("pediatrics, cardiology");
-   
+-- grouping by admissions by service and calculating by average stay
+-- SELECT service, AVG(DATEDIFF(discharge_date, admission_date)) AS average_length_of_stay
+-- FROM admissions
+-- GROUP BY service;
 
+-- grouping discharge disposition and counting
+-- SELECT discharge_disposition, COUNT(*) AS discharge_count
+-- FROM discharges
+-- GROUP BY discharge_disposition;
+
+-- grouping admissions by service and total nuumber of admissions
+-- SELECT service, 
+-- COUNT(*) AS total_admissions
+-- FROM admissions
+-- GROUP BY service
+-- HAVING COUNT(*) > 5;
+
+-- calculating avg length of stay for patients admitted with stroke
+-- SELECT
+-- AVG(DATEDIFF(discharge_date, admission_date)) AS average_length_of_of_stay
+-- FROM admissions
+-- WHERE primary_diagnosis = 'stroke'
+
+-- grouping ed_visits by acuity and calculating total visits
+-- SELECT acuity,
+-- COUNT(*) as total_visit
+-- FROM ed_visits
+-- GROUP BY acuity;
+
+-- grouping admissions by primary_diagnosis and service
+-- SELECT primary_diagnosis, service,
+-- COUNT(*)  AS total_admissions
+-- FROM admissions
+-- GROUP BY primary_diagnosis, service;
+          
+-- grouping admissions by month and calculating total number of admissions          
+-- SELECT
+-- FORMAT(admission_date , 'YYYY-MM') AS admission_month,
+-- COUNT(*) AS total_admissions
+-- FROM admissions
+-- GROUP BY FORMAT(admission_date, 'YYYY-MM')
+-- ORDER BY admission_month;
+
+-- Finding the maximum length of stay for each primary_diagnosis
+-- SELECT primary_diagnosis,
+-- MAX(DATEDIFF(discharge_date, admission_date)) AS max_length_of_stay
+-- FROM admissions
+-- GROUP BY primary_diagnosis;
 
 
 
