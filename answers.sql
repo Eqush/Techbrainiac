@@ -1,66 +1,43 @@
 -- USE hospital_db;
- 
--- retrieving total number of patients in admission table
--- SELECT COUNT(*) AS total_admissions
--- FROM admissions;
- 
- -- calculating average length of stay from patients
- -- SELECT AVG (DATEDIFF(discharge_date, admission_date)) AS average_length_of_stay
---  FROM admissions;
 
--- grouping by admissions and calculating total number of admissions
--- SELECT primary_diagnosis, COUNT(*) AS total_admissions
--- FROM admissions
--- GROUP BY primary_diagnosis;
+-- adding data to patients
+-- SELECT * FROM patients;
+-- INSERT INTO patients
+--    (first_name, last_name, date_of_birth, gender, language)
+-- VALUES ('John', 'Doe', '1980-11-15', 'Male', 'English');
 
--- grouping by admissions by service and calculating by average stay
--- SELECT service, AVG(DATEDIFF(discharge_date, admission_date)) AS average_length_of_stay
--- FROM admissions
--- GROUP BY service;
+-- changing language 
+-- SELECT * FROM patients;
+-- UPDATE patients
+-- SET language = 'Spanish'
+-- WHERE patient_id = 946;
 
--- grouping discharge disposition and counting
--- SELECT discharge_disposition, COUNT(*) AS discharge_count
--- FROM discharges
--- GROUP BY discharge_disposition;
+-- deletting patient records
+-- DELETE FROM patients
+-- WHERE patient_id = 10 ;
 
--- grouping admissions by service and total nuumber of admissions
--- SELECT service, 
--- COUNT(*) AS total_admissions
--- FROM admissions
--- GROUP BY service
--- HAVING COUNT(*) > 5;
+-- replacing null email_address with N/A
+-- SELECT 
+-- first_name,
+-- last_name, 
+-- IFNULL(email_address, 'N/A') AS email_address_found
+-- FROM providers;
 
--- calculating avg length of stay for patients admitted with stroke
--- SELECT
--- AVG(DATEDIFF(discharge_date, admission_date)) AS average_length_of_of_stay
--- FROM admissions
--- WHERE primary_diagnosis = 'stroke'
+-- SELECT 
+-- first_name,
+-- last_name,
+-- COALESCE(phone_number, 'missing') AS missing_details
+-- FROM providers;
 
--- grouping ed_visits by acuity and calculating total visits
--- SELECT acuity,
--- COUNT(*) as total_visit
--- FROM ed_visits
--- GROUP BY acuity;
+-- bonus quiz
+-- SELECT * 
+-- FROM providers
+-- WHERE provider_specialty = 'pediatrics'
+-- AND (phone_number IS NULL OR email_address IS NULL);
 
--- grouping admissions by primary_diagnosis and service
--- SELECT primary_diagnosis, service,
--- COUNT(*)  AS total_admissions
--- FROM admissions
--- GROUP BY primary_diagnosis, service;
-          
--- grouping admissions by month and calculating total number of admissions          
--- SELECT
--- FORMAT(admission_date , 'YYYY-MM') AS admission_month,
--- COUNT(*) AS total_admissions
--- FROM admissions
--- GROUP BY FORMAT(admission_date, 'YYYY-MM')
--- ORDER BY admission_month;
 
--- Finding the maximum length of stay for each primary_diagnosis
--- SELECT primary_diagnosis,
--- MAX(DATEDIFF(discharge_date, admission_date)) AS max_length_of_stay
--- FROM admissions
--- GROUP BY primary_diagnosis;
+
+
 
 
 
