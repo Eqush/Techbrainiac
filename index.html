@@ -2,31 +2,63 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width.  initial-scale=1.0">
-        <title>My Web Page.</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My medical webpage</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
-            <h1>Welcome To My Web Page.</h1>
+            <h1>Welcome to Our Medical Center</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <br>
+                    <li><a href="#services">SERVICES</a></li>
+                    <br>
+                    <li><a href="#contact">CONTACT</a></li>
+                    <br>
+                </ul>
+            </nav>
         </header>
-        <section>
-            <div class="content">
-                <h2>About Me</h2>
-                <p>This is a section about me.</p>
-            </div>
-            <div>
-                <h2>Contact Me</h2>
-                <form action="/submit" method="post">
-                    <label for="name">Name:</label>
-                    <input type="text" id="email" name="name">
-                    <br><br>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email">
-                    <br><br>
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
+        <section id="home">
+            <h2>About Us</h2>
+            <p>We provide the best medical services.</p>
         </section>
+        <section id="services">  
+        </section>
+        <section id="services">
+            <h2>Our services</h2>
+            <ul>
+                <li>General Checkup</li>
+                <br>
+                <li>Emergency Services</li>
+                <br>
+                <li>Specialist Consultations</li>
+                <br>
+            </ul>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <footer>
+            <div class="footer content">
+                <br>
+                <div>&copy; copyright 2024 </div>
+                <div>
+                    <a href="#facebook">Facebook</a> |
+                    <a href="#x">Twitter</a> |
+                    <a href="#instagram">Instagram</a> |
+                    <a href="#tiktok">Tiktok</a>
+                </div>
+            </div>
+        </footer>
     </body>
+    <script src="script.js"></script>
 </html>
