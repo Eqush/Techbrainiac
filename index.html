@@ -1,64 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My medical webpage</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <h1>Welcome to Our Medical Center</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">HOME</a></li>
-                    <br>
-                    <li><a href="#services">SERVICES</a></li>
-                    <br>
-                    <li><a href="#contact">CONTACT</a></li>
-                    <br>
-                </ul>
-            </nav>
-        </header>
-        <section id="home">
-            <h2>About Us</h2>
-            <p>We provide the best medical services.</p>
-        </section>
-        <section id="services">  
-        </section>
-        <section id="services">
-            <h2>Our services</h2>
-            <ul>
-                <li>General Checkup</li>
-                <br>
-                <li>Emergency Services</li>
-                <br>
-                <li>Specialist Consultations</li>
-                <br>
-            </ul>
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form id="contactForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-        <footer>
-            <div class="footer content">
-                <br>
-                <div>&copy; copyright 2024 </div>
-                <div>
-                    <a href="#facebook">Facebook</a> |
-                    <a href="#x">Twitter</a> |
-                    <a href="#instagram">Instagram</a> |
-                    <a href="#tiktok">Tiktok</a>
-                </div>
-            </div>
-        </footer>
-    </body>
-    <script src="script.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 1em;
+            border: 1px solid #ccc;
+            border-radius: 1em;
+        }
+
+        div + div {
+            margin-top: 1em;
+        }
+
+        label {
+            display: block;
+            margin-top: .5em;
+        }
+
+        input, select {
+            width: 100%;
+            padding: .5em;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"] {
+            width:auto
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="Registrationform">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <label for="confirmpassword">Confirm Password:</label>
+            <input type="password" id="confirmpassword" name="confirmpassword" required>
+        </div>
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" max="100" required>
+        </div>
+        <div>
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value= "male" required>
+            <label for="male">Male:</label>
+            <input type="radio" id="female" name="gender" value= "female" required>
+            <label for="female">Female:</label>
+        </div>
+        <div>
+            <label for="country">Country:</label> 
+            <select id="country" name="country" required>
+                <option value=" ">Select your country</option>
+                <option value="kenya">Kenya</option>
+                <option value="usa">USA</option>
+                <option value="uk">UK</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">I agree to the Terms and Conditions</label>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+        <div class="error" id="error"></div>
+    </form>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event)) {
+            const password = doocument.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const error.Div = document.getElementById('error');
+        }
+
+        if (password.length < 8) {
+            errorDiv.textContent = 'Password must be at least 8 characters long.';
+            event.preventDefault();
+        } else if (password !== confirm password) {
+            errorDiv.textContent = 'Passwords do not match.';
+            event.preventDefault();
+        } else {
+            errorDiv.textContent = ''
+        }
+        })
+    </script>
+</body>
 </html>
