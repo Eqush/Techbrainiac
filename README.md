@@ -1,114 +1,99 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/vnsr1XuU)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=15718704&assignment_repo_type=AssignmentRepo)
-# Env_Set
+# Database Interacation in Web Applications
 
-# Environment Setup Assignment
+This demonstrates the cconnection of MySQL database and Node.js to create a simple API
 
-#Dart & Flutter
+## Requirements
+- [Node.js](https://nodejs.org/) installed
+-  MySQL installed and running
+-  A code editor, like [Visual Studio Code](https://code.visualstudio.com/download)
 
-1. What is the first step for installing Dart on a Windows machine?
+## Setup
+1. Clone the repository
+2. Initialize the node.js environment
+   ```
+   npm init -y
+   ```
+3. Install the necessary dependancies
+   ```
+   npm install express mysql2 dotenv nodemon
+   ```
+4. Create a ``` server.js ``` and ```.env``` files
+5. Basic ```server.js``` setup
+   <br>
+   
+   ```js
+   const express = require('express')
+   const app = express()
 
-A) Install Homebrew
-B) Download the Dart SDK
-C) Update your PATH
-D) Run Dart Doctor
-Download the Dart SDK(my answer)
+   
+   // Question 1 goes here
 
-2. Which command verifies the Dart installation on macOS?
 
-A) dart --install
-B) dart --check
-C) dart --verify
-D) dart --version
-dart --version(my answer)
+   // Question 2 goes here
 
-3. What is the next step after downloading and extracting the Flutter SDK on Linux?
 
-A) Install Homebrew
-B) Update your PATH
-C) Run Flutter Doctor
-D) Create a new Flutter project
-Update your PATH(my answer)
+   // Question 3 goes here
 
-4. What command is used to run a newly created Flutter app?
 
-A) flutter start
-B) flutter build
-C) flutter run
-D) flutter init
-flutter run(my answer)
+   // Question 4 goes here
 
-#Python Installation
+   
 
-What is the first step to install Python on a Windows system?
+   // listen to the server
+   const PORT = 3000
+   app.listen(PORT, () => {
+     console.log(`server is runnig on http://localhost:${PORT}`)
+   })
+   ```
+<br><br>
 
-A) Run the installer without any customization
-B) Download Python from the official website
-C) Open the terminal and type sudo apt install python
-D) Install pip manually
-Download Python from the official website(my answer)
-Which option should you ensure is checked during Python installation on Windows?
+## Run the server
+   ```
+   nodemon server.js
+   ```
+<br><br>
 
-A) Install with default settings
-B) Install to a custom directory
-C) Add Python to PATH
-D) Install all available features
-Add Python to PATH(my answer)
-How do you verify Python installation on any system?
+## Setup the ```.env``` file
+```.env
+DB_USERNAME=root
+DB_HOST=localhost
+DB_PASSWORD=your_password
+DB_NAME=hospital_db
+```
 
-A) By running python --version
-B) By restarting your computer
-C) By opening the Python installer again
-D) By checking the Programs and Features in Control Panel
+<br><br>
 
-What command is used to install pip on macOS and Linux?
+## Configure the database connection and test the connection
+Configure the ```server.js``` file to access the credentials in the ```.env``` to use them in the database connection
 
-A) sudo install pip
-B) pip install python
-C) curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-D) python --install pip
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py(my answer)
-What is the purpose of a virtual environment in Python?
+<br>
 
-A) To keep your projects organized in one folder
-B) To install Python in a different directory
-C) To separate project dependencies and avoid conflicts
-D) To enhance Python performance on your system
-To separate project dependencies and avoid conflicts(my answer)
-#MySQL Installation
+## 1. Retrieve all patients
+Create a ```GET``` endpoint that retrieves all patients and displays their:
+- ```patient_id```
+- ```first_name```
+- ```last_name```
+- ```date_of_birth```
 
-What is the first step to install MySQL on Windows?
+<br>
 
-A) Download MySQL Shell
-B) Download MySQL Installer from the official website
-C) Install MySQL Workbench
-D) Set up a root password
-Download MySQL Installer from the official website(my answer)
-What setup type should you choose for a custom MySQL installation?
+## 2. Retrieve all providers
+Create a ```GET``` endpoint that displays all providers with their:
+- ```first_name```
+- ```last_name```
+- ```provider_specialty```
 
-A) Developer Default
-B) Server Only
-C) Full
-D) Custom
-Custom(my answer)
-Which products should you select during the MySQL installation?
+<br>
 
-A) MySQL Server, MySQL Workbench, and MySQL Shell
-B) Only MySQL Server
-C) MySQL Server and MySQL Router
-D) MySQL Workbench and MySQL Utilities
-MySQL Server, MySQL Workbench, and MySQL Shell(my answer)
-What is the purpose of setting a root password during MySQL installation?
+## 3. Filter patients by First Name
+Create a ```GET``` endpoint that retrieves all patients by their first name
 
-A) To create a user account for your MySQL server
-B) To secure your MySQL installation with a super-secret password
-C) To activate MySQL Workbench
-D) To allow multiple users to access MySQL
-To secure your MySQL installation with a super-secret password(my answer)
-How do you begin managing your database after installing MySQL?
+<br>
 
-A) Start by installing additional plugins
-B) Launch MySQL Workbench and connect to your MySQL Server
-C) Run mysqladmin start in the terminal
-D) Restart your computer to activate MySQL
-Launch MySQL Workbench and connect to your MySQL Server(my answer)
+## 4. Retrieve all providers by their specialty
+Create a ```GET``` endpoint that retrieves all providers by their specialty
+
+<br>
+
+
+## NOTE: Do not fork this repository
