@@ -1,0 +1,26 @@
+ Create a program that reads a file and writes a modified version to a new file.
+# File Modification Program
+
+def read_and_modify_file():
+    input_filename = input("Please enter the filename to read: ")
+    
+    try:
+        with open(input_filename, 'r') as file:
+            content = file.read()
+        
+        modified_content = content.upper()  # Example modification: convert to uppercase
+        
+        output_filename = "modified_" + input_filename
+        with open(output_filename, 'w') as file:
+            file.write(modified_content)
+        
+        print(f"Modified content has been written to {output_filename}.")
+    
+    except FileNotFoundError:
+        print("Error: The file does not exist.")
+    except IOError:
+        print("Error: The file cannot be read.")
+
+if __name__ == "__main__":
+    read_and_modify_file()
+
