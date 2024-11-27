@@ -1,0 +1,101 @@
+# defining the class
+class Fruit:
+    def __init__(self, name, color, taste):
+        self.name = name
+        self.color = color
+        self.taste = taste
+
+    def describe(self):
+        return f"{self.name} is {self.color} and tastes {self.taste}."
+    
+#  adding layers
+class Apple(Fruit):
+    def __init__(self, color, taste, variety):
+        super().__init__('Apple', color, taste)
+        self.variety = variety
+
+    def describe(self):
+        return f"{self.name} ({self.variety} variety) is {self.color} and tastes {self.taste}."
+
+class Banana(Fruit):
+    def __init__(self, color, taste, length):
+        super().__init__('Banana', color, taste)
+        self.length = length
+
+    def describe(self):
+        return f"{self.name} is {self.color}, tastes {self.taste}, and is {self.length} cm long."
+
+class Orange(Fruit):
+    def __init__(self, color, taste, seedless):
+        super().__init__('Orange', color, taste)
+        self.seedless = seedless
+
+    def describe(self):
+        seed_status = 'seedless' if self.seedless else 'with seeds'
+        return f"{self.name} is {self.color}, tastes {self.taste}, and is {seed_status}."
+
+# Create instances of the fruits
+fruit1 = Apple(color="red", taste="sweet", variety="Fuji")
+fruit2 = Banana(color="yellow", taste="sweet", length=20)
+fruit3 = Orange(color="orange", taste="citrusy", seedless=True)
+
+# Describe the fruits
+print(fruit1.describe())
+print(fruit2.describe())
+print(fruit3.describe())
+
+# ASSIGNMENT PART 2
+class Animal:
+    def move(self):
+        pass
+
+class Dog(Animal):
+    def move(self):
+        print("Running ")
+
+class Bird(Animal):
+    def move(self):
+        print("Flying ")
+
+class Fish(Animal):
+    def move(self):
+        print("Swimming ")
+
+class Vehicle:
+    def move(self):
+        pass
+
+class Car(Vehicle):
+    def move(self):
+        print("Driving ")
+
+class Plane(Vehicle):
+    def move(self):
+        print("Flying ")
+
+class Boat(Vehicle):
+    def move(self):
+        print("Sailing ")
+
+# Create instances of animals
+dog = Dog()
+bird = Bird()
+fish = Fish()
+
+# Create instances of vehicles
+car = Car()
+plane = Plane()
+boat = Boat()
+
+# Call the move() method for each instance
+animals = [dog, bird, fish]
+vehicles = [car, plane, boat]
+
+print("Animal Movements:")
+for animal in animals:
+    animal.move()
+
+print("\nVehicle Movements:")
+for vehicle in vehicles:
+    vehicle.move()
+
