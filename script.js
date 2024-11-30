@@ -1,31 +1,44 @@
-let form = document.getElementById('Registration Form')
 
-form.addEventListener('submit', function(reload){
-    reload.preventDefault();
-    // validation
-    let username = form.elements["username"].value;
-    let email = form.elements["email"].value;
-    let password = form.elements["password"].value;
-    let contact = form.elements["contact"].value;
+document.getElementById('frm-register').addEventListener('submit', async function(e) {
+    e.preventDefault();
 
-    if(username || email || password || contact === "none" || terms){
-        form.submit();
-    } else {
-        alert("Please fill out all required fields and accept the terms and conditions.")
+    const name = document.getElementById('name').value; 
+    const email = document.getElementById('email').value; 
+    const password = document.getElementById('password').value; 
 
-        if (emailPattern.test(email)){
-            form.submit();
-        } else {
-            alert('Please enter a valid email address.')
-        }
-           
-    }
+    //send the request to the server
+    const response = await fetch('/auth/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify({ name, email, password })
+    });
 
-    const formData = {
-        username: username,
-        email: email,
-        password: password,
-        contact: contact,
-        termsAccepted: terms
-    }
-})
+    const data = await response.json();
+
+    alert(data.message);
+
+});
+
+document.getElementById('frm-login').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value; 
+    const password = document.getElementById('password').value; 
+
+    //send the request to the server
+    const response = await fetch('/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+    });
+
+    const data = await response.json();
+
+    alert(data.message + 'Welcome ' + data.name + ' of email address: ' + data.email);
+
+       
+});
